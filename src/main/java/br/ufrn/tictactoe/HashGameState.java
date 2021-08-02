@@ -103,7 +103,8 @@ public class HashGameState {
 	
 	@Override
 	public String toString() {
-		return "HashGameState [xPlayerName=" + xPlayerName + ", oPlayerName=" + oPlayerName + ", gameMessage=" + gameMessage
+		return "HashGameState [xPlayerName=" + xPlayerName + ", oPlayerName="
+				+ oPlayerName + ", gameMessage=" + gameMessage
 				+ ", turnMessage=" + turnMessage + ", turn=" + turn + ", gameStage="
 				+ gameStage + ", board=" + board + "]";
 	}

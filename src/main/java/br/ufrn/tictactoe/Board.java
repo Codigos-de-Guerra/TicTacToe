@@ -51,9 +51,48 @@ public class Board {
 	}
 
 	/* Checks if determined marker is winner */
-	public boolean isWinner(Marker marker) {
+	public boolean isWinner_DEPRE(Marker marker) {
 		// Check for three in a row down
 		return (this.hasColumn(marker) || this.hasRow(marker) || this.hasDiagonal(marker));
+	}
+
+	// Above is bugged
+	public boolean isWinner(Marker marker) {
+		// Check for three in a row down
+		for(int r = 0; r < 3;  ++r) {
+			boolean isWinner = true;
+			for(int c = 0; isWinner && (c < 3); ++c) {
+				if(board[r][c] != marker) {
+					isWinner = false;
+				}
+			}
+			if(isWinner) {
+				return true;
+			}
+		}
+		
+		// Check for three in a row across
+		for(int c = 0; c < 3;  ++c) {
+			boolean isWinner = true;
+			for(int r = 0; isWinner && (r < 3); ++r) {
+				if(board[r][c] != marker) {
+					isWinner = false;
+				}
+			}
+			if(isWinner) {
+				return true;
+			}
+		}
+		
+		// Check the diagonals
+		if((board[0][0] == marker) && (board[1][1] == marker) && (board[2][2] == marker)) {
+			return true;
+		}
+		if((board[2][0] == marker) && (board[1][1] == marker) && (board[0][2] == marker)) {
+			return true;
+		}
+		
+		return false;
 	}
 
 	/* Checks if it has the win condition "fill row"*/
